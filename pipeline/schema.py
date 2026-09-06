@@ -17,18 +17,17 @@ class Bubble:
     speaker: str
     text: str
     start: float          # seconds from the start of this clip
-    end: float            # seconds; bubble disappears at the cut if omitted
+    end: float | None     # seconds; None -> resolved to next bubble's start / clip end
     side: BubbleSide = "left"
 
     @staticmethod
     def from_json(d: dict[str, Any], clip_duration: float) -> "Bubble":
-        start = float(d["start"])
-        end = float(d.get("end", clip_duration))
+        raw_end = d.get("end")
         return Bubble(
             speaker=str(d["speaker"]),
             text=str(d["text"]).strip(),
-            start=start,
-            end=min(end, clip_duration),
+            start=float(d["start"]),
+            end=(None if raw_end is None else min(float(raw_end), clip_duration)),
             side=d.get("side", "left"),
         )
 
@@ -56,13 +55,21 @@ class Clip:
     @staticmethod
     def from_json(d: dict[str, Any]) -> "Clip":
         duration = float(d["duration"])
+        bubbles = [Bubble.from_json(b, duration) for b in d.get("bubbles", [])]
+        # One bubble on screen at a time: an unset end runs until the next
+        # bubble starts (or the cut). Keeps overlapping speech from stacking.
+        for i, b in enumerate(bubbles):
+            if b.end is None:
+                nxt = bubbles[i + 1].start if i + 1 < len(bubbles) else duration
+                b.end = min(nxt, duration)
+            b.end = max(b.end, b.start + 0.4)
         return Clip(
             id=str(d["id"]),
             role=d["role"],
             prompt=str(d["prompt"]).strip(),
             duration=duration,
             motion=str(d.get("motion", "")),
-            bubbles=[Bubble.from_json(b, duration) for b in d.get("bubbles", [])],
+            bubbles=bubbles,
             sfx=[Sfx.from_json(s) for s in d.get("sfx", [])],
         )
 
