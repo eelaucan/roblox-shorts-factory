@@ -2,48 +2,124 @@
   "episode_id": "mom-button",
   "topic": "the 2026 Roblox update",
   "title": "Roblox added a MOM button in the 2026 update 💀",
-  "description": "The 2026 update went too far. #roblox #meme #shorts #roblox2026",
+  "description": "My friend pressed the button. Now the whole server is grounded. #roblox #meme #shorts #roblox2026 #brookhaven",
   "clips": [
+    {
+      "id": "hook",
+      "role": "hook",
+      "duration": 5,
+      "motion": "slow pull-back reveal",
+      "prompt": "Wide shot inside a huge neutral-grey exhibition hall that has been turned into a giant tidy children's bedroom: dozens of blocky Roblox-style avatars are vacuuming, making bunk beds and folding laundry in silence. One blocky avatar with a yellow head and blue t-shirt stops mid-vacuum and turns to look directly at the camera. Roblox blocky low-poly 3D animation style. No text, no captions, no letters anywhere. Vertical 9:16 framing.",
+      "bubbles": [
+        { "speaker": "me", "text": "so the 2026 update added a MOM button", "start": 0.4, "side": "left" }
+      ],
+      "sfx": [ { "name": "pop", "at": 0.4 } ]
+    },
     {
       "id": "setup",
       "role": "setup",
       "duration": 5,
       "motion": "slow push-in",
-      "prompt": "A single blocky Roblox-style avatar stands in a clean neutral-grey exhibition hall, staring up at a large glowing floating holographic UI panel that reads nothing, soft even lighting, dust motes in the light beams.",
+      "prompt": "A single blocky Roblox-style 3D avatar with a yellow blocky head, blue t-shirt and grey pants stands in a clean neutral-grey exhibition hall, staring up at a large glowing floating holographic panel. Soft even lighting, dust motes drifting in the light beams. Slow cinematic push-in. Roblox blocky low-poly 3D animation style. No text, no captions, no letters anywhere. Vertical 9:16 framing.",
       "bubbles": [
-        { "speaker": "Blocky", "text": "new 2026 update just dropped", "start": 1.0, "side": "left" }
+        { "speaker": "me", "text": "6 hours earlier", "start": 0.2, "end": 1.6, "side": "left" },
+        { "speaker": "Blocky", "text": "new 2026 update just dropped", "start": 2.0, "side": "left" }
       ],
-      "sfx": [ { "name": "pop", "at": 1.0 } ]
+      "sfx": [ { "name": "pop", "at": 2.0 } ]
     },
     {
       "id": "conversation",
       "role": "conversation",
       "duration": 5,
       "motion": "locked-off two shot",
-      "prompt": "A second blocky avatar walks in from the right and stops facing the first one, both standing in the same grey exhibition hall, they turn their blocky heads toward each other, small idle movements.",
+      "prompt": "Two blocky Roblox-style 3D avatars in a clean neutral-grey exhibition hall: one with a yellow blocky head and blue t-shirt, one with a red cap and green shirt. The red-cap avatar walks in from the right and stops facing the first one; they turn their blocky heads toward each other with small idle movements. Locked-off medium two-shot, soft even lighting. Roblox blocky low-poly 3D animation style. No text, no captions, no letters anywhere. Vertical 9:16 framing.",
       "bubbles": [
         { "speaker": "Guest", "text": "they added a mom button", "start": 0.4, "side": "right" },
-        { "speaker": "Blocky", "text": "a what", "start": 2.0, "side": "left" },
-        { "speaker": "Guest", "text": "press it and your mom joins the server", "start": 3.0, "side": "right" }
+        { "speaker": "Blocky", "text": "a what", "start": 2.4, "side": "left" }
       ],
       "sfx": [
         { "name": "pop", "at": 0.4 },
-        { "name": "pop", "at": 2.0 },
-        { "name": "pop", "at": 3.0 }
+        { "name": "pop", "at": 2.4 }
       ]
     },
     {
-      "id": "punchline",
+      "id": "explain",
+      "role": "conversation",
+      "duration": 5,
+      "motion": "slow dolly toward a pedestal in the background",
+      "prompt": "Two blocky Roblox-style 3D avatars stand in the grey exhibition hall — one yellow head and blue shirt, one red cap and green shirt. The red-cap avatar gestures back toward a giant glossy red arcade button on a metal pedestal glowing in the middle of the hall. The yellow-head avatar leans back, arms raised, hesitant. Roblox blocky low-poly 3D animation style. No text, no captions, no letters anywhere. Vertical 9:16 framing.",
+      "bubbles": [
+        { "speaker": "Guest", "text": "press it and your mom joins the server", "start": 0.3, "side": "right" },
+        { "speaker": "Blocky", "text": "absolutely not", "start": 2.6, "side": "left" },
+        { "speaker": "Guest", "text": "i already pressed it", "start": 3.6, "side": "right" }
+      ],
+      "sfx": [
+        { "name": "pop", "at": 0.3 },
+        { "name": "pop", "at": 2.6 },
+        { "name": "pop", "at": 3.6 }
+      ]
+    },
+    {
+      "id": "press",
       "role": "punchline",
       "duration": 5,
       "motion": "hard camera shake then quick zoom out",
-      "prompt": "The blocky avatar slams a giant red arcade button on a pedestal, the ceiling of the grey hall explodes upward in a blinding vertical beam of light, a huge towering blocky mother figure rises through the hole, both small avatars are blasted off their feet and tumble backward, debris cubes flying everywhere.",
+      "prompt": "A blocky Roblox-style 3D avatar slams a giant red arcade button on a pedestal. The ceiling of the grey exhibition hall bursts upward in a blinding vertical beam of light and a huge towering blocky mother character with brown hair in a bun rises through the hole. Both small blocky avatars are blasted off their feet and tumble backward as cube debris flies everywhere. Hard camera shake then a quick zoom out. Roblox blocky low-poly 3D animation style. No text, no captions, no letters anywhere. Vertical 9:16 framing.",
       "bubbles": [
-        { "speaker": "Mom", "text": "why is your room a mess", "start": 1.5, "side": "right" }
+        { "speaker": "Blocky", "text": "WHY WOULD YOU DO THAT", "start": 1.6, "side": "left" }
       ],
       "sfx": [
         { "name": "impact", "at": 0.0 },
-        { "name": "pop", "at": 1.5 }
+        { "name": "pop", "at": 1.6 }
+      ]
+    },
+    {
+      "id": "mom_arrives",
+      "role": "escalation",
+      "duration": 5,
+      "motion": "low angle looking up, slow tilt",
+      "prompt": "A gigantic blocky Roblox-style mother character with brown hair in a bun and a purple sweater stands towering over two tiny blocky avatars in a grey exhibition hall, hands on hips, leaning down and pointing a huge blocky finger at them. The two small avatars crouch and cover their heads. Dramatic low camera angle. Roblox blocky low-poly 3D animation style. No text, no captions, no letters anywhere. Vertical 9:16 framing.",
+      "bubbles": [
+        { "speaker": "Mom", "text": "why is this server so messy", "start": 0.4, "side": "right" },
+        { "speaker": "Mom", "text": "everyone. cleaning. NOW", "start": 2.6, "side": "right" }
+      ],
+      "sfx": [
+        { "name": "pop", "at": 0.4 },
+        { "name": "impact", "at": 2.6 }
+      ]
+    },
+    {
+      "id": "chaos",
+      "role": "escalation",
+      "duration": 10,
+      "motion": "fast whip-pans between busy avatars",
+      "prompt": "Frantic activity in the grey exhibition hall: many blocky Roblox-style avatars rush around pushing vacuum cleaners, carrying blocky beds and dressers that pop into existence, scrubbing the floor. The giant blocky mother figure stands in the middle supervising with folded arms. Energetic camera whip-pans between the workers. Roblox blocky low-poly 3D animation style. No text, no captions, no letters anywhere. Vertical 9:16 framing.",
+      "bubbles": [
+        { "speaker": "Blocky", "text": "she admin-banned the toxic kid", "start": 0.6, "side": "left" },
+        { "speaker": "Guest", "text": "she deleted the swear filter bypass", "start": 3.0, "side": "right" },
+        { "speaker": "Blocky", "text": "she's restarting the server at 9pm", "start": 5.6, "side": "left" },
+        { "speaker": "Guest", "text": "honestly this update kinda fixed roblox", "start": 8.0, "side": "right" }
+      ],
+      "sfx": [
+        { "name": "pop", "at": 0.6 },
+        { "name": "pop", "at": 3.0 },
+        { "name": "pop", "at": 5.6 },
+        { "name": "pop", "at": 8.0 }
+      ]
+    },
+    {
+      "id": "climax",
+      "role": "punchline",
+      "duration": 5,
+      "motion": "slow rise to a wide hero shot",
+      "prompt": "Wide hero shot: the entire neutral-grey exhibition hall is now a spotless enormous bedroom with rows of neatly made bunk beds. Every blocky Roblox-style avatar sits quietly at a desk doing homework. The giant blocky mother figure nods, satisfied, at the back. One blocky avatar with a yellow head slowly reaches a hand toward a second glowing button on a pedestal. Roblox blocky low-poly 3D animation style. No text, no captions, no letters anywhere. Vertical 9:16 framing.",
+      "bubbles": [
+        { "speaker": "Guest", "text": "do NOT press the dad button", "start": 1.4, "side": "right" },
+        { "speaker": "me", "text": "like & sub before he presses it", "start": 3.2, "side": "left" }
+      ],
+      "sfx": [
+        { "name": "pop", "at": 1.4 },
+        { "name": "pop", "at": 3.2 }
       ]
     }
   ]

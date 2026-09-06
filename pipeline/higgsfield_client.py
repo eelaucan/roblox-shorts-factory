@@ -171,7 +171,7 @@ class HiggsfieldClient:
         import numpy as np
         from moviepy import ImageClip
 
-        shade = {"setup": 90, "conversation": 110, "punchline": 70}[clip.role]
+        shade = {"setup": 90, "conversation": 110, "punchline": 70}.get(clip.role, 96)
         frame = np.full((self.s.height, self.s.width, 3), shade, dtype="uint8")
         (
             ImageClip(frame)

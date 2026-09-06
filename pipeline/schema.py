@@ -98,12 +98,11 @@ class Episode:
     def validate(self) -> None:
         if not self.episode_id or "/" in self.episode_id or " " in self.episode_id:
             raise ValueError(f"episode_id must be a safe slug, got {self.episode_id!r}")
-        roles = [c.role for c in self.clips]
-        if roles != ["setup", "conversation", "punchline"]:
-            raise ValueError(
-                "expected exactly 3 clips with roles "
-                f"[setup, conversation, punchline], got {roles}"
-            )
+        if len(self.clips) < 2:
+            raise ValueError("an episode needs at least 2 clips")
+        ids = [c.id for c in self.clips]
+        if len(ids) != len(set(ids)):
+            raise ValueError(f"clip ids must be unique, got {ids}")
         for c in self.clips:
             if not 1.0 <= c.duration <= 15.0:
                 raise ValueError(f"clip {c.id}: duration {c.duration}s out of 1-15s range")
