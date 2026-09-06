@@ -1,0 +1,50 @@
+{
+  "episode_id": "mom-button",
+  "topic": "the 2026 Roblox update",
+  "title": "Roblox added a MOM button in the 2026 update 💀",
+  "description": "The 2026 update went too far. #roblox #meme #shorts #roblox2026",
+  "clips": [
+    {
+      "id": "setup",
+      "role": "setup",
+      "duration": 5,
+      "motion": "slow push-in",
+      "prompt": "A single blocky Roblox-style avatar stands in a clean neutral-grey exhibition hall, staring up at a large glowing floating holographic UI panel that reads nothing, soft even lighting, dust motes in the light beams.",
+      "bubbles": [
+        { "speaker": "Blocky", "text": "new 2026 update just dropped", "start": 1.0, "side": "left" }
+      ],
+      "sfx": [ { "name": "pop", "at": 1.0 } ]
+    },
+    {
+      "id": "conversation",
+      "role": "conversation",
+      "duration": 5,
+      "motion": "locked-off two shot",
+      "prompt": "A second blocky avatar walks in from the right and stops facing the first one, both standing in the same grey exhibition hall, they turn their blocky heads toward each other, small idle movements.",
+      "bubbles": [
+        { "speaker": "Guest", "text": "they added a mom button", "start": 0.4, "side": "right" },
+        { "speaker": "Blocky", "text": "a what", "start": 2.0, "side": "left" },
+        { "speaker": "Guest", "text": "press it and your mom joins the server", "start": 3.0, "side": "right" }
+      ],
+      "sfx": [
+        { "name": "pop", "at": 0.4 },
+        { "name": "pop", "at": 2.0 },
+        { "name": "pop", "at": 3.0 }
+      ]
+    },
+    {
+      "id": "punchline",
+      "role": "punchline",
+      "duration": 5,
+      "motion": "hard camera shake then quick zoom out",
+      "prompt": "The blocky avatar slams a giant red arcade button on a pedestal, the ceiling of the grey hall explodes upward in a blinding vertical beam of light, a huge towering blocky mother figure rises through the hole, both small avatars are blasted off their feet and tumble backward, debris cubes flying everywhere.",
+      "bubbles": [
+        { "speaker": "Mom", "text": "why is your room a mess", "start": 1.5, "side": "right" }
+      ],
+      "sfx": [
+        { "name": "impact", "at": 0.0 },
+        { "name": "pop", "at": 1.5 }
+      ]
+    }
+  ]
+}

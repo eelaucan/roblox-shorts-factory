@@ -17,12 +17,13 @@ soul:
 environment: "a clean neutral-grey exhibition hall with soft even lighting"
 
 higgsfield:
-  # Verify these against `higgsfield --help` after install — the wrapper isolates
-  # every CLI assumption in pipeline/higgsfield_client.py so only this block +
-  # that file change if the surface differs.
-  video_model: "kling-2.1"       # any of Higgsfield's 30+ video models
-  poll_interval_seconds: 15
-  timeout_seconds: 1200
+  # Verified against Higgsfield CLI 1.1.24 (`higgsfield model get <job_type>`).
+  video_model: "kling2_6"        # `higgsfield model list --video` for the full set
+  aspect_ratio: "9:16"           # kling2_6 enum: 16:9 | 9:16 | 1:1
+  duration: 5                    # kling2_6 enum: 5 | 10   (5s ~= 10 credits)
+  sound: false                   # we add our own audio in the compositor
+  wait_timeout: "20m"
+  wait_interval: "10s"
   max_retries: 1
 
 bubbles:
@@ -39,7 +40,7 @@ bubbles:
   margin_bottom_frac: 0.20             # where bubbles sit from the bottom
 
 audio:
-  music: "assets/audio/music.mp3"
+  music: "assets/audio/music.wav"
   music_gain_db: -18
   pop_sfx: "assets/audio/pop.wav"
   impact_sfx: "assets/audio/impact.wav"

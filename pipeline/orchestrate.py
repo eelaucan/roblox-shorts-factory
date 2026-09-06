@@ -37,36 +37,62 @@ def _load_dotenv() -> None:
 
 
 def run(topic: str, *, dry_run: bool, force_script: bool,
-        publish: bool, publish_at: str | None) -> Path:
+        publish: bool, publish_at: str | None, episode_file: str | None = None,
+        skip_clips: bool = False) -> Path:
     _load_dotenv()
     cfg = load_config()
 
     # 1. script -------------------------------------------------------------
-    stub_id = "".join(c if c.isalnum() else "-" for c in topic.lower())[:40].strip("-")
-    ep_dir = ROOT / "output" / (stub_id or "episode")
-    ep_dir.mkdir(parents=True, exist_ok=True)
-    script_path = ep_dir / "episode.json"
-
-    if dry_run and not script_path.exists() and "ANTHROPIC_API_KEY" not in _env():
-        episode = _demo_episode(topic, stub_id)
+    if episode_file:
+        # Hand-authored spec — no API call. episode_id from the file drives the dir.
+        src = json.loads(Path(episode_file).read_text())
+        episode = Episode.from_json(src)
+        ep_dir = ROOT / "output" / episode.episode_id
+        ep_dir.mkdir(parents=True, exist_ok=True)
+        script_path = ep_dir / "episode.json"
         script_path.write_text(json.dumps(episode.to_json(), indent=2))
-        print(f"[script] no API key — wrote demo episode to {script_path}")
+        print(f"[script] hand-authored '{episode.title}' -> {script_path}")
     else:
-        episode = write_episode(
-            topic, script_path,
-            model=_env().get("SCRIPT_MODEL"), force=force_script,
-        )
-        print(f"[script] '{episode.title}' -> {script_path}")
+        stub_id = "".join(c if c.isalnum() else "-" for c in topic.lower())[:40].strip("-")
+        ep_dir = ROOT / "output" / (stub_id or "episode")
+        ep_dir.mkdir(parents=True, exist_ok=True)
+        script_path = ep_dir / "episode.json"
+
+        if dry_run and not script_path.exists() and "ANTHROPIC_API_KEY" not in _env():
+            episode = _demo_episode(topic, stub_id)
+            script_path.write_text(json.dumps(episode.to_json(), indent=2))
+            print(f"[script] no API key — wrote demo episode to {script_path}")
+        else:
+            episode = write_episode(
+                topic, script_path,
+                model=_env().get("SCRIPT_MODEL"), force=force_script,
+            )
+            print(f"[script] '{episode.title}' -> {script_path}")
 
     # episode_id may differ from the stub; keep everything in one dir anyway
     clips_dir = ep_dir / "clips"
 
     # 2. clips ------------------------------------------------------------
+    if skip_clips:
+        missing = [c.id for c in episode.clips
+                   if not (clips_dir / f"{c.id}.mp4").exists()]
+        if missing:
+            raise FileNotFoundError(
+                f"--skip-clips set but these clips are absent from {clips_dir}: {missing}. "
+                "Drop the generated .mp4s there first (named <clip id>.mp4)."
+            )
+        print(f"[clips] using {len(episode.clips)} pre-generated clips in {clips_dir}")
+        return _finish(episode, clips_dir, cfg, ep_dir, publish, publish_at, dry_run)
+
+    hc = cfg["higgsfield"]
     hs = HiggsfieldSettings(
-        video_model=cfg["higgsfield"]["video_model"],
-        poll_interval_seconds=cfg["higgsfield"]["poll_interval_seconds"],
-        timeout_seconds=cfg["higgsfield"]["timeout_seconds"],
-        max_retries=cfg["higgsfield"]["max_retries"],
+        video_model=hc["video_model"],
+        aspect_ratio=hc["aspect_ratio"],
+        duration=int(hc["duration"]),
+        sound=bool(hc["sound"]),
+        wait_timeout=str(hc["wait_timeout"]),
+        wait_interval=str(hc["wait_interval"]),
+        max_retries=int(hc["max_retries"]),
         width=cfg["video"]["width"],
         height=cfg["video"]["height"],
         fps=cfg["video"]["fps"],
@@ -75,10 +101,17 @@ def run(topic: str, *, dry_run: bool, force_script: bool,
         environment=cfg["environment"],
     )
     client = HiggsfieldClient(hs, dry_run=dry_run)
+    if not dry_run:
+        est = sum(filter(None, (client.estimate_cost(c) for c in episode.clips)))
+        print(f"[cost] estimated ~{est:g} credits for {len(episode.clips)} clips")
     for clip in episode.clips:
         print(f"[clip] {clip.role}: {clip.id}")
         client.generate_clip(clip, clips_dir)
 
+    return _finish(episode, clips_dir, cfg, ep_dir, publish, publish_at, dry_run)
+
+
+def _finish(episode, clips_dir, cfg, ep_dir, publish, publish_at, dry_run) -> Path:
     # 3. composite ------------------------------------------------------
     final = ep_dir / f"{episode.episode_id}.mp4"
     print("[composite] stitching + bubbles + audio...")
@@ -144,15 +177,22 @@ def _demo_episode(topic: str, stub_id: str) -> Episode:
 
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument("--topic", required=True)
+    p.add_argument("--topic", default="", help="topic for the LLM script writer")
+    p.add_argument("--episode", default=None,
+                   help="path to a hand-authored episode JSON (skips the LLM)")
     p.add_argument("--dry-run", action="store_true",
                    help="grey placeholder clips, no Higgsfield calls, $0")
+    p.add_argument("--skip-clips", action="store_true",
+                   help="clips already in output/<id>/clips/ (e.g. made via the "
+                        "Higgsfield MCP connector) — go straight to compositing")
     p.add_argument("--force-script", action="store_true",
                    help="re-ask Claude even if episode.json is cached")
     p.add_argument("--publish", action="store_true", help="upload to YouTube (private)")
     p.add_argument("--publish-at", default=None,
                    help="RFC3339 UTC, e.g. 2026-09-10T17:00:00Z")
     args = p.parse_args(argv)
+    if not args.topic and not args.episode:
+        p.error("pass --topic or --episode")
 
     final = run(
         args.topic,
@@ -160,6 +200,8 @@ def main(argv: list[str] | None = None) -> int:
         force_script=args.force_script,
         publish=args.publish,
         publish_at=args.publish_at,
+        episode_file=args.episode,
+        skip_clips=args.skip_clips,
     )
     print(f"\nDone: {final}")
     return 0
