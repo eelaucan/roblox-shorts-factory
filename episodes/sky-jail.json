@@ -1,0 +1,107 @@
+{
+  "episode_id": "sky-jail",
+  "topic": "F3X spawn-camper revenge",
+  "title": "I trapped my bully in a SKY JAIL 💀🚀",
+  "description": "He spawn-camped me for 4 days. So I learned F3X. #roblox #f3x #trollrevenge #robloxedit #fyp",
+  "clips": [
+    {
+      "id": "spawn",
+      "role": "hook",
+      "duration": 5,
+      "motion": "static, then hard shake on the hit",
+      "prompt": "A blocky Roblox-style 3D avatar with a black hood and dark green shirt spawns on a flat grey baseplate and is instantly boxed in by tall grey brick walls. A bright red brick slides in from the side and knocks it flat on its back. Bright even daylight, clear blue sky. Roblox blocky low-poly 3D animation style. No text, no captions, no letters anywhere. Vertical 9:16 framing.",
+      "bubbles": [
+        { "speaker": "me", "text": "day 4 of this spawn camper", "start": 0.4, "side": "left" }
+      ],
+      "sfx": [ { "name": "impact", "at": 1.4 } ]
+    },
+    {
+      "id": "wall",
+      "role": "setup",
+      "duration": 5,
+      "motion": "tilt up the wall to the troll on top",
+      "prompt": "A blocky Roblox-style 3D avatar with a black hood respawns and is walled in again by tall grey brick walls on a flat grey baseplate. High above, standing on top of the wall, a blocky avatar with spiky red hair and a black shirt crouches up and down repeatedly, taunting. Bright even daylight, blue sky. Roblox blocky low-poly 3D animation style. No text, no captions, no letters anywhere. Vertical 9:16 framing.",
+      "bubbles": [
+        { "speaker": "troll", "text": "cant build noob", "start": 0.4, "side": "right" },
+        { "speaker": "me", "text": "so i learned f3x", "start": 2.6, "side": "left" }
+      ],
+      "sfx": [ { "name": "pop", "at": 0.4 }, { "name": "pop", "at": 2.6 } ]
+    },
+    {
+      "id": "attack",
+      "role": "attack",
+      "duration": 5,
+      "motion": "whip toward the fling, slow-mo at the apex",
+      "prompt": "On a flat grey baseplate, a blocky Roblox-style avatar with spiky red hair uses floating building tools to drop a wobbly stack of grey bricks onto a hooded blocky avatar, then rams it with a long thin brick that launches the hooded avatar tumbling across the ground. Bright even daylight, blue sky. Roblox blocky low-poly 3D animation style. No text, no captions, no letters anywhere. Vertical 9:16 framing.",
+      "bubbles": [
+        { "speaker": "troll", "text": "stay down", "start": 0.5, "side": "right" }
+      ],
+      "sfx": [ { "name": "impact", "at": 2.4 } ]
+    },
+    {
+      "id": "box",
+      "role": "revenge",
+      "duration": 10,
+      "motion": "fast cuts on every brick placement, time-lapse feel",
+      "prompt": "Time-lapse style: a hooded blocky Roblox-style avatar rapidly clones glowing white neon bricks with floating building tools, assembling a hollow cube around a distracted red-haired blocky avatar until it is completely sealed inside, then clicks each panel to lock it in place. Flat grey baseplate, bright even daylight, blue sky. Roblox blocky low-poly 3D animation style. No text, no captions, no letters anywhere. Vertical 9:16 framing.",
+      "bubbles": [
+        { "speaker": "me", "text": "he went afk to type in chat", "start": 0.6, "side": "left" },
+        { "speaker": "me", "text": "step 1 box him in", "start": 3.2, "side": "left" },
+        { "speaker": "me", "text": "step 2 seal every gap", "start": 5.6, "side": "left" },
+        { "speaker": "me", "text": "step 3 anchor it so he cant push out", "start": 7.9, "side": "left" }
+      ],
+      "sfx": [
+        { "name": "pop", "at": 0.6 },
+        { "name": "pop", "at": 3.2 },
+        { "name": "pop", "at": 5.6 },
+        { "name": "pop", "at": 7.9 }
+      ]
+    },
+    {
+      "id": "engine",
+      "role": "revenge",
+      "duration": 5,
+      "motion": "orbit around the base of the cube",
+      "prompt": "Beneath a glowing white neon cube on a flat grey baseplate, a hooded blocky Roblox-style avatar stacks bricks and attaches large rocket boosters to the underside, welding them together with floating building tools. Bright even daylight, clear blue sky. Roblox blocky low-poly 3D animation style. No text, no captions, no letters anywhere. Vertical 9:16 framing.",
+      "bubbles": [
+        { "speaker": "me", "text": "step 4 add a rocket", "start": 0.5, "side": "left" },
+        { "speaker": "troll", "text": "wait what is that", "start": 2.8, "side": "right" }
+      ],
+      "sfx": [ { "name": "pop", "at": 0.5 }, { "name": "pop", "at": 2.8 } ]
+    },
+    {
+      "id": "launch",
+      "role": "climax",
+      "duration": 5,
+      "motion": "low angle, hard camera shake, whip up to follow",
+      "prompt": "A glowing white neon cube erupts straight upward off a flat grey baseplate on a huge pillar of bright orange fire and white smoke, rocketing up into a clear blue daytime sky and out of the top of the frame. Low camera angle, strong camera shake. Roblox blocky low-poly 3D animation style. No text, no captions, no letters anywhere. Vertical 9:16 framing.",
+      "bubbles": [
+        { "speaker": "me", "text": "3 2 1", "start": 0.3, "side": "left" }
+      ],
+      "sfx": [ { "name": "impact", "at": 0.5 } ]
+    },
+    {
+      "id": "skybox",
+      "role": "climax",
+      "duration": 5,
+      "motion": "slow spin, drifting",
+      "prompt": "High in a bright blue daytime sky, a glowing white neon cube spins slowly with a tiny grey baseplate visible far below. A trapped blocky Roblox-style avatar with spiky red hair floats limp inside the cube. Wispy clouds drift past. Roblox blocky low-poly 3D animation style. No text, no captions, no letters anywhere. Vertical 9:16 framing.",
+      "bubbles": [
+        { "speaker": "troll", "text": "im disconnecting", "start": 1.6, "side": "right" }
+      ],
+      "sfx": [ { "name": "pop", "at": 1.6 } ]
+    },
+    {
+      "id": "outro",
+      "role": "outro",
+      "duration": 5,
+      "motion": "slow push-in on the block, then hold",
+      "prompt": "Back on the now-empty flat grey baseplate in bright daylight, a hooded blocky Roblox-style avatar places a small glowing block on the ground, brushes its blocky hands together, and walks away from the camera into a clear blue sky. Roblox blocky low-poly 3D animation style. No text, no captions, no letters anywhere. Vertical 9:16 framing.",
+      "bubbles": [
+        { "speaker": "me", "text": "gg. see you day 5", "start": 0.6, "side": "left" },
+        { "speaker": "me", "text": "sub if he deserved it", "start": 2.9, "side": "left" }
+      ],
+      "sfx": [ { "name": "pop", "at": 0.6 }, { "name": "pop", "at": 2.9 } ]
+    }
+  ]
+}
