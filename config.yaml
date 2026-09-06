@@ -1,0 +1,52 @@
+# Pipeline-wide settings. Per-episode content comes from the LLM, not here.
+
+video:
+  width: 1080
+  height: 1920            # 9:16
+  fps: 30
+
+soul:
+  # The Soul character id/name trained via `/higgsfield:soul-id` (or `higgsfield soul ...`).
+  # Until you've trained one, dry-run ignores this and real runs fall back to a
+  # plain-prompt description.
+  character: "Blocky"
+  fallback_description: >
+    a blocky Roblox avatar with a yellow blocky head, blue shirt, green pants,
+    stiff LEGO-like limbs
+
+environment: "a clean neutral-grey exhibition hall with soft even lighting"
+
+higgsfield:
+  # Verify these against `higgsfield --help` after install — the wrapper isolates
+  # every CLI assumption in pipeline/higgsfield_client.py so only this block +
+  # that file change if the surface differs.
+  video_model: "kling-2.1"       # any of Higgsfield's 30+ video models
+  poll_interval_seconds: 15
+  timeout_seconds: 1200
+  max_retries: 1
+
+bubbles:
+  font: "assets/fonts/bubble.ttf"     # drop a chunky rounded .ttf here
+  font_size: 54
+  text_color: [20, 20, 20]
+  bubble_color: [255, 255, 255]
+  outline_color: [0, 0, 0]
+  outline_width: 6
+  corner_radius: 34
+  padding: [34, 26]                    # x, y
+  max_width_frac: 0.72                 # wrap width as fraction of video width
+  pop_in_seconds: 0.18
+  margin_bottom_frac: 0.20             # where bubbles sit from the bottom
+
+audio:
+  music: "assets/audio/music.mp3"
+  music_gain_db: -18
+  pop_sfx: "assets/audio/pop.wav"
+  impact_sfx: "assets/audio/impact.wav"
+  impact_gain_db: 0
+
+publish:
+  category_id: "24"                    # Entertainment
+  privacy: "private"                   # never 'public' from code
+  tags: ["roblox", "meme", "shorts"]
+  made_for_kids: false

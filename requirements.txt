@@ -1,0 +1,8 @@
+anthropic>=0.40
+moviepy>=2.1
+Pillow>=10.4
+PyYAML>=6.0
+# YouTube upload (optional — only imported by pipeline.publisher)
+google-api-python-client>=2.140
+google-auth-oauthlib>=1.2
+google-auth-httplib2>=0.2

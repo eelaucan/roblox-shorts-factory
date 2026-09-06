@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+output/
+assets/audio/*
+!assets/audio/README.md
+assets/fonts/*
+!assets/fonts/README.md
+client_secret*.json
+token.json
+
